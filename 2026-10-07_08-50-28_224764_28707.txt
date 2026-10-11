@@ -1,0 +1,90 @@
+# Terminal Full Output
+# Terminal: draughthood-warning-investigation
+# Command: printf '%s\n' '--- props in app/components ---'; rg -n "accessible=|accessibilityState=| aria-|checked=| disabled=| entering=| exiting=|reducedMotion" app components; printf '%s\n' '--- global project hooks ---'; rg -n "Received .false.|warning|console\.(warn|error)" app components lib
+# PID: 28707
+# Timestamp: 2026-10-07_08-50-28.224764
+# Original Length: 9768 characters
+# ----------------------------------------
+
+[32mubuntu@sandbox:~$ [0mprintf '%s\n' '--- props in app/components ---'; rg -n "accessible=|accessibilityState=| aria-|checked=| disabled=| entering=| exiting=|reducedMotion" app components; printf '%s\n' '--- global project hooks ---'; rg -n "Received .false.|warning|console\.(warn|error)" app components lib
+--- props in app/components ---
+[0m[35mapp/game.tsx
+[0m[0m[32m42[0m:  const [0m[1m[31mreducedMotion[0m = useReducedMotion();
+[0m[32m233[0m:        <DraughtsBoard board={game.board} selected={selected} moves={legalMoves} lastMove={game.lastMove} lastMoveId={game.moveNumber} promotionSquare={game.lastEvent === "promotion" ? game.lastMove?.to : null}[0m[1m[31m disabled=[0m{!canControlTurn || finished || paused || handoffSide !== null} localPlayers={localMatch} onCell={onCell} />
+[0m[32m244[0m:        <Control label="Undo" icon="arrow-undo"[0m[1m[31m disabled=[0m{!canControlTurn || session.history.length < undoPlies || finished || handoffSide !== null} onPress={undoTurn} />
+[0m[32m250[0m:      <Modal visible={Boolean(localMatch && handoffSide !== null && !finished && !paused && !showRules && !routeChoices)} transparent animationType={[0m[1m[31mreducedMotion[0m ? "none" : "fade"} onRequestClose={() => undefined}>
+[0m[32m260[0m:      <Modal visible={Boolean(routeChoices?.length)} transparent animationType={[0m[1m[31mreducedMotion[0m ? "none" : "slide"} onRequestClose={() => setRouteChoices(null)}>
+[0m[32m275[0m:      <Modal visible={paused && !finished} transparent animationType={[0m[1m[31mreducedMotion[0m ? "none" : "fade"} onRequestClose={() => setPaused(false)}>
+[0m[32m285[0m:      <Modal visible={showRules} transparent animationType={[0m[1m[31mreducedMotion[0m ? "none" : "slide"} onRequestClose={() => setShowRules(false)}>
+[0m[32m298[0m:      <Modal visible={finished} transparent animationType={[0m[1m[31mreducedMotion[0m ? "none" : "fade"} onRequestClose={() => router.replace("/")}>
+[0m[32m302[0m:              {outcomeIsWin ? <Animated.View[0m[1m[31m entering=[0m{[0m[1m[31mreducedMotion[0m ? undefined : ZoomIn.duration(430).springify()}><CrownGlyph size={35} /></Animated.View> : <Text style={styles.resultCrown}>◇</Text>}
+[0m[32m323[0m:  const [0m[1m[31mreducedMotion[0m = useReducedMotion();
+[0m[32m326[0m:  return <AnimatedPressable onPress={onPress} onPressIn={() => { if (!disabled && ![0m[1m[31mreducedMotion[0m) scale.value = withSpring(0.93, { damping: 15, stiffness: 380 }); }} onPressOut={() => { scale.value = [0m[1m[31mreducedMotion[0m ? 1 : withSpring(1, { damping: 14, stiffness: 310 }); }}[0m[1m[31m disabled=[0m{disabled} accessibilityRole="button" accessibilityLabel={label} style={[styles.control, disabled && styles.controlDisabled, motion]}><Ionicons name={icon} size={19} color={disabled ? "#718277" : palette.goldLight} /
+><Text style={[styles.controlLabel, disabled && styles.controlLabelDisabled]}>{label}</Text></AnimatedPressable>;
+[0m[35mcomponents/game/crown.tsx
+[0m[0m[32m6[0m:    <Svg width={size} height={size * 0.76} viewBox="0 0 48 36" [0m[1m[31maccessible=[0m{false}>
+[0m[35mcomponents/game/board.tsx
+[0m[0m[32m22[0m:function TapRipple({ [0m[1m[31mreducedMotion[0m }: { [0m[1m[31mreducedMotion[0m: boolean }) {
+[0m[32m23[0m:  const scale = useSharedValue([0m[1m[31mreducedMotion[0m ? 1 : 0.38);
+[0m[32m24[0m:  const opacity = useSharedValue([0m[1m[31mreducedMotion[0m ? 0 : 0.46);
+[0m[32m28[0m:    if ([0m[1m[31mreducedMotion[0m) return;
+[0m[32m31[0m:  }, [opacity, [0m[1m[31mreducedMotion[0m, scale]);
+[0m[32m36[0m:function CaptureBurst({ [0m[1m[31mreducedMotion[0m }: { [0m[1m[31mreducedMotion[0m: boolean }) {
+[0m[32m37[0m:  const scale = useSharedValue([0m[1m[31mreducedMotion[0m ? 1 : 0.45);
+[0m[32m38[0m:  const opacity = useSharedValue([0m[1m[31mreducedMotion[0m ? 0 : 0.95);
+[0m[32m42[0m:    if ([0m[1m[31mreducedMotion[0m) return;
+[0m[32m45[0m:  }, [opacity, [0m[1m[31mreducedMotion[0m, scale]);
+[0m[32m50[0m:function Seed({ side, king, selected, promoted, [0m[1m[31mreducedMotion[0m }: { side: Side; king: boolean; selected: boolean; promoted: boolean; [0m[1m[31mreducedMotion[0m: boolean }) {
+[0m[32m64[0m:    scale.value = [0m[1m[31mreducedMotion[0m ? (selected ? 1.08 : king ? 1.04 : 1) : withSpring(baseScale, { damping: 10, stiffness: 245, mass: 0.68 });
+[0m[32m65[0m:    if (!promoted) glow.value = [0m[1m[31mreducedMotion[0m ? baseGlow : withSpring(baseGlow, { damping: 14, stiffness: 170 });
+[0m[32m66[0m:  }, [glow, king, promoted, [0m[1m[31mreducedMotion[0m, scale, selected]);
+[0m[32m70[0m:    if ([0m[1m[31mreducedMotion[0m) {
+[0m[32m77[0m:  }, [glow, promoted, [0m[1m[31mreducedMotion[0m, scale, selected]);
+[0m[32m81[0m:     [0m[1m[31m entering=[0m{[0m[1m[31mreducedMotion[0m ? undefined : FadeIn.duration(140)}
+[0m[32m82[0m:     [0m[1m[31m exiting=[0m{[0m[1m[31mreducedMotion[0m ? undefined : ZoomOut.duration(150)}
+[0m[32m83[0m:      layout={[0m[1m[31mreducedMotion[0m ? undefined : LinearTransition.springify().damping(16).stiffness(190)}
+[0m[32m94[0m:  const [0m[1m[31mreducedMotion[0m = useReducedMotion();
+[0m[32m108[0m:    if ([0m[1m[31mreducedMotion[0m) return;
+[0m[32m136[0m:                 [0m[1m[31m disabled=[0m{disabled}
+[0m[32m141[0m:                  {tapPulse?.key === key ? <TapRipple key={tapPulse.token} [0m[1m[31mreducedMotion[0m={[0m[1m[31mreducedMotion[0m} /> : null}
+[0m[32m142[0m:                  {wasCaptured ? <Animated.View[0m[1m[31m entering=[0m{[0m[1m[31mreducedMotion[0m ? undefined : FadeIn.duration(80)} style={styles.captureRing} /> : null}
+[0m[32m143[0m:                  {isTarget ? <Animated.View[0m[1m[31m entering=[0m{[0m[1m[31mreducedMotion[0m ? undefined : ZoomIn.duration(150).springify()} style={[styles.targetDot, dark ? styles.targetDotDark : styles.targetDotLight, moves.some((move) => selected && same(move.from, selected) && same(move.to, position) && move.isCapture) && styles.targetCapture]} /> : null}
+[0m[32m144[0m:                  {lastCapturedKeys.has(key) ? <CaptureBurst key={`${lastMoveId ?? "move"}-${key}`} [0m[1m[31mreducedMotion[0m={[0m[1m[31mreducedMotion[0m} /> : null}
+[0m[32m145[0m:                  {piece ? <Seed side={piece.side} king={piece.king} selected={isSelected} promoted={justPromoted} [0m[1m[31mreducedMotion[0m={[0m[1m[31mreducedMotion[0m} /> : null}
+[0m[35mcomponents/game/ui.tsx
+[0m[0m[32m11[0m:  const [0m[1m[31mreducedMotion[0m = useReducedMotion();
+[0m[32m15[0m:    if (!disabled && ![0m[1m[31mreducedMotion[0m) scale.value = withSpring(0.965, { damping: 16, stiffness: 360, mass: 0.62 });
+[0m[32m18[0m:    scale.value = [0m[1m[31mreducedMotion[0m ? 1 : withSpring(1, { damping: 13, stiffness: 300, mass: 0.68 });
+[0m[32m87[0m:     [0m[1m[31m disabled=[0m{disabled}
+[0m[35mapp/(tabs)/index.tsx
+[0m[0m[32m69[0m:              <Pressable key={level.id} onPress={() => setDifficulty(level.id)} accessibilityRole="radio" [0m[1m[31maccessibilityState=[0m{{ selected: active }} style={[styles.level, active && styles.levelActive]}>
+[0m[35mapp/(tabs)/challenges.tsx
+[0m[0m[32m55[0m:               [0m[1m[31m disabled=[0m{!unlocked}
+[0m[32m57[0m:                [0m[1m[31maccessibilityState=[0m{{ disabled: !unlocked }}
+[0m[35mapp/(tabs)/records.tsx
+[0m[0m[32m42[0m:        <Pressable onPress={toggleSound} accessibilityRole="switch" [0m[1m[31maccessibilityState=[0m{{ checked: profile.soundEnabled }} accessibilityLabel="Toggle board sounds" style={[styles.soundToggle, profile.soundEnabled && styles.soundToggleOn]}><View style={[styles.soundThumb, profile.soundEnabled && styles.soundThumbOn]} /></Pressable>
+--- global project hooks ---
+[0m[35mapp/oauth/callback.tsx
+[0m[0m[32m51[0m:              [0m[1m[31mconsole.error[0m("[OAuth] Failed to parse user data");
+[0m[32m92[0m:          [0m[1m[31mconsole.error[0m("[OAuth] Error parameter found");
+[0m[32m150[0m:          [0m[1m[31mconsole.error[0m("[OAuth] Missing code or state parameter");
+[0m[32m193[0m:          [0m[1m[31mconsole.error[0m("[OAuth] No session token in result");
+[0m[32m198[0m:        [0m[1m[31mconsole.error[0m("[OAuth] Callback error");
+[0m[35mapp/dev/theme-lab.tsx
+[0m[0m[32m158[0m:                style={{ backgroundColor: SchemeColors[colorScheme].[0m[1m[31mwarning[0m }}
+[0m[35mlib/theme-provider.tsx
+[0m[0m[32m51[0m:        "color-[0m[1m[31mwarning[0m": SchemeColors[colorScheme].[0m[1m[31mwarning[0m,
+[0m[35mlib/_core/auth.ts
+[0m[0m[32m27[0m:    [0m[1m[31mconsole.error[0m("[Auth] Failed to get session token");
+[0m[32m45[0m:    [0m[1m[31mconsole.error[0m("[Auth] Failed to set session token");
+[0m[32m63[0m:    [0m[1m[31mconsole.error[0m("[Auth] Failed to remove session token");
+[0m[32m88[0m:    [0m[1m[31mconsole.error[0m("[Auth] Failed to get user info");
+[0m[32m108[0m:    [0m[1m[31mconsole.error[0m("[Auth] Failed to set user info");
+[0m[32m123[0m:    [0m[1m[31mconsole.error[0m("[Auth] Failed to clear user info");
+[0m[35mlib/_core/api.ts
+[0m[0m[32m47[0m:      [0m[1m[31mconsole.error[0m("[API] Error response received");
+[0m[32m69[0m:    [0m[1m[31mconsole.error[0m("[API] Request failed");
+[0m[32m120[0m:    [0m[1m[31mconsole.error[0m("[API] getMe failed");
+[0m[32m143[0m:      [0m[1m[31mconsole.error[0m("[API] establishSession failed");
+[0m[32m150[0m:    [0m[1m[31mconsole.error[0m("[API] establishSession error");
+[32mubuntu@sandbox:~/eagledraft$ [0m
